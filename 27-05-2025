@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int differenceOfSums(int n, int m) {
+        vector<int> div;
+        for (int i = 1; i <= n; i++) {
+            if (i % m == 0) {
+                div.push_back(i);
+            }
+        }
+        int num2 = accumulate(div.begin(), div.end(), 0);
+        int total = (n * (n + 1)) / 2;
+        int num1 = total - num2;
+        int ans = num1 - num2;
+        return ans;
+    }
+};
