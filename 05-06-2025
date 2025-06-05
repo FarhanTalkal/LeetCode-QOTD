@@ -1,0 +1,24 @@
+class Solution {
+public:
+    string smallestEquivalentString(string s1, string s2, string baseStr) {
+        char letters[26];
+        for (int i = 0; i < 26; i++) {
+            letters[i] = 'a' + i;
+        }
+        for (int i = 0; i < s1.size(); i++) {
+            char a = letters[s1[i] - 'a'];
+            char b = letters[s2[i] - 'a'];
+            char smaller = min(a, b);
+            char larger = max(a, b);
+            for (int j = 0; j < 26; j++) {
+                if (letters[j] == larger) {
+                    letters[j] = smaller;
+                }
+            }
+        }
+        for (int i = 0; i < baseStr.size(); i++) {
+            baseStr[i] = letters[baseStr[i] - 'a'];
+        }
+        return baseStr;
+    }
+};
