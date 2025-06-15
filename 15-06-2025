@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int maxDiff(int num) {
+        string s = to_string(num);
+        set<char> u_D(s.begin(), s.end());
+        int m_Val = num, mi_Val = num;
+        for (char digit : u_D) {
+            for (char newDigit = '0'; newDigit <= '9'; newDigit++) {
+                if (s[0] == digit && newDigit == '0')
+                    continue;
+                string newS = s;
+                replace(newS.begin(), newS.end(), digit, newDigit);
+                int newNum = stoi(newS);
+                m_Val = max(m_Val, newNum);
+                mi_Val = min(mi_Val, newNum);
+            }
+        }
+        return m_Val - mi_Val;
+    }
+};
