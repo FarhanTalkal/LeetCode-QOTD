@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maxDistance(string s, int k) {
+        int ans = 0;
+        int N = 0, S = 0, E = 0, W = 0;
+        for (int i = 0; i < s.size(); i++) {
+            char c = s[i];
+            if (c == 'N')
+                N++;
+            else if (c == 'S')
+                S++;
+            else if (c == 'E')
+                E++;
+            else if (c == 'W')
+                W++;
+            int x = abs(N - S);
+            int y = abs(W - E);
+            int distance = x + y;
+            int total = distance + min(2 * k, i + 1 - distance);
+            ans = max(ans, total);
+        }
+        return ans;
+    }
+};
