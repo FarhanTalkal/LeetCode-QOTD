@@ -1,3 +1,5 @@
+referred solution: leetcode.com/problems/kth-smallest-product-of-two-sorted-arrays/solutions/6881305/beginner-freindly-java-c-python-js/
+
 class Solution {
 public:
     long long kthSmallestProduct(vector<int>& nums1, vector<int>& nums2, long long k) {
